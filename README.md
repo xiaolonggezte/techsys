@@ -1,6 +1,6 @@
 # techsys
 
-
+- xi
 | Name | Academy | score | 
 | - | :-: | -: | 
 | Harry Potter | Gryffindor| 90 | 
