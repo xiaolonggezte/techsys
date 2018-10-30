@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CommonRequest extends FormRequest
+class CommonRegisterRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -15,7 +15,6 @@ class CommonRequest extends FormRequest
     {
         return true;
     }
-
     /**
      * Get the validation rules that apply to the request.
      *
@@ -25,7 +24,7 @@ class CommonRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'username' => 'required | unique:students,student_username | unique:teachers,teacher_username',
+            'username' => 'required | unique:students,student_username| unique:teachers,teacher_username',
             'password' => 'required | between:6,20',
             'email' => 'required | email',
             'protocol' => 'required'

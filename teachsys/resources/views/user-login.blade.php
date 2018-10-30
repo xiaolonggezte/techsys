@@ -5,13 +5,9 @@
 @section('content')
 <div id="container" class="cls-container">
 
-    <!-- BACKGROUND IMAGE -->
-    <!--===================================================-->
     <div id="bg-overlay"></div>
 
 
-    <!-- LOGIN FORM -->
-    <!--===================================================-->
     <div class="cls-content">
         <div class="cls-content-sm panel">
             <div class="panel-body">

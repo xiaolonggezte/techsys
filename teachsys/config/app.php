@@ -177,6 +177,10 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /*
+         * may
+         */
+//        \App\Providers\StudentServiceProvider::class,
     ],
 
     /*
@@ -226,6 +230,10 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
+        /*
+         * my
+         */
+//        'StudentService' => \App\Services\StudentService::class,
     ],
 
 ];
