@@ -9,11 +9,10 @@ class StudentModel extends Model {
     protected $primaryKey = 'student_id';
 
     protected $fillable = [
-        'student_name',
         'student_username',
+        'student_name',
         'student_email',
         'student_password'
     ];
-    public $timestamps = true;
 
 }

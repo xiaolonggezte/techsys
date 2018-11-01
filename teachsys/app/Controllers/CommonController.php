@@ -7,6 +7,8 @@ namespace App\Controllers;
 
 
 
+use App\Facades\StudentService;
+use App\Facades\TeacherService;
 use Illuminate\Http\Request;
 
 class CommonController extends Controller
@@ -33,9 +35,28 @@ class CommonController extends Controller
 
     /**
      * @param Request $request
-     * student,teacher登录的共同类
+     * student,teacher登录的公共方法
      */
-    public function Commonlogin(Request $request) {
+    public function userLogin(Request $request) {
+        $username = $request -> input('username');
+        $password = $request -> input('password');
+        if(StudentService::login($username, $password)) {
+            //学生用户并且登录成功
+            $_SESSION['role'] = 'student';
+            $_SESSION['user'] = StudentService::queryByUsername($username);
+        } else if(TeacherService::login($username, $password)) {
+            //教师用户并登录成功
+            $_SESSION['role'] = 'teacher';
+            $_SESSION['user'] = TeacherService::queryByUsername($username);
+        } else {
+            $_SESSION['user'] = null;
+        }
+        return view('home');
+    }
 
+    public function UserUnLogin() {
+        if(isset($_SESSION['user'])) {
+            unset($_SESSION['user']);
+        }
     }
 }

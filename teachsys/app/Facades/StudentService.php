@@ -6,15 +6,21 @@
  * Description:
  */
 
-namespace App\Facadees;
+namespace App\Facades;
 
 
-use App\Services\StudentService;
+
 use Illuminate\Support\Facades\Facade;
 
-class StudentServiceFacade extends Facade
+
+/**
+ * @method static insertOne(array $paras)
+ * @method static login($username, $password)
+ */
+class StudentService extends Facade
 {
+
     protected static function getFacadeAccessor() {
-        return 'studentServiceFacade';
+        return 'StudentService';
     }
 }

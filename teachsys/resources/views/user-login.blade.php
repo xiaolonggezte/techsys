@@ -15,12 +15,13 @@
                     <h1 class="h3">Account Login</h1>
                     <p>Sign In to your account</p>
                 </div>
-                <form action="index.html">
+                <form action="/users/login" method="post">
+                    {{ csrf_field() }}
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Username" autofocus>
+                        <input type="text" class="form-control" name="username" placeholder="Username" autofocus>
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control" placeholder="Password">
+                        <input type="password" class="form-control" name="password" placeholder="Password">
                     </div>
                     <div class="checkbox pad-btm text-left">
                         <input id="demo-form-checkbox" class="magic-checkbox" type="checkbox">
@@ -51,7 +52,5 @@
 
 
 </div>
-<!--===================================================-->
-<!-- END OF CONTAINER -->
 
 @endsection

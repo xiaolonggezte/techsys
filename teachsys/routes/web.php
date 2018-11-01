@@ -29,9 +29,6 @@ Route::get('/login',function() {
     return view('user-login');
 });
 
-Route::get('/', function() {
-    return view('home');
-});
 
 /*
  * 注册
@@ -44,10 +41,9 @@ Route::any('/registerTeacher','\App\Controllers\TeacherController@register');
 /*
  * 登录
  */
-Route::get('/login','\App\Controllers\CommonController@login');
 
-Route::any('/loginStudent','\App\Controllers\StudentController@login');
-Route::any('/loginTeacher','\App\Controllers\TeacherController@login');
+
+Route::any('/users/login','\App\Controllers\CommonController@userLogin');
 
 
 Route::get('/base',function() {

@@ -3,19 +3,18 @@
 namespace App\Controllers;
 
 
+use App\Facades\TeacherService;
+use App\Models\TeacherModel;
 use App\Requests\CommonRegisterRequest;
-use App\Services\TeacherService;
 use Illuminate\Http\Request;
 
 class TeacherController extends Controller
 {
-    public function register(Request $request, CommonRegisterRequest $commonRegisterRequest, TeacherService $service) {
+    public function register(Request $request, CommonRegisterRequest $commonRegisterRequest) {
         $paras = $request -> all();
-        $service -> insertOne($paras);
+        TeacherService::insertOne($paras);
         return view('user-login',compact('type','teacher'));
     }
 
-    public function login() {
 
-    }
 }

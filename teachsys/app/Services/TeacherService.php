@@ -10,19 +10,44 @@ namespace App\Services;
 
 
 
-use Illuminate\Support\Facades\DB;
+
+use App\Models\TeacherModel;
 
 class TeacherService
 {
     public function insertOne($paras) {
 
         $data = [
-            $paras['username'],
-            encrypt($paras['password']),
-            $paras['email'],
-            $paras['name']
+            'teacher_username' => $paras['username'],
+            'teacher_password' => encrypt($paras['password']),
+            'teacher_name' => $paras['email'],
+            'teacher_email' => $paras['name']
         ];
-        DB::insert('insert into teachers(teacher_username,teacher_password,teacher_email,teacher_name) values(?,?,?,?)',$data);
-        return;
+
+        TeacherModel::create($data);
+    }
+
+    /**
+     * @param $username
+     * @return mixed
+     * 根据用户名查询用户
+     */
+    public function queryByUsername($username) {
+        return TeacherModel::where('teacher_username',$username);
+    }
+
+    /***
+     * @param $username
+     * @param $password
+     * @return bool
+     * 登录校验
+     */
+    public function login($username, $password) {
+        $teacher = TeacherModel::where('teacher_username',$username);
+//        dd($teacher);
+//        if(null == $teacher || decrypt($teacher['teacher_password']) != $password) {
+//            return false;
+//        }
+        return true;
     }
 }

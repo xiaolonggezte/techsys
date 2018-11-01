@@ -398,9 +398,7 @@
 
 
 
-                    <!--User dropdown-->
-                    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-                    @auth
+                    @if(isset($_SESSION['user']) and null !== $_SESSION['user']))
                         <li id="dropdown-user" class="dropdown">
                             <a href="#" data-toggle="dropdown" class="dropdown-toggle text-right">
                                     <span class="ic-user pull-right">
@@ -431,54 +429,8 @@
                                 </ul>
                             </div>
                         </li>
-                    @endauth
-
-                    @guest
+                    @else
                         <li id="dropdown-user" class="dropdown">
-                            <span>
-                                <a href="#" data-toggle="dropdown" class="dropdown-toggle text-right">
-                                    <div class="username hidden-xs">登录</div>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-md dropdown-menu-right panel-default">
-
-
-                                    <!-- User dropdown menu -->
-                                    <ul class="head-list">
-                                        <li>
-                                            <a href="/login?type=student">
-                                                {{--<i class="demo-pli-male icon-lg icon-fw"></i> --}}
-                                                学生登录
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/login?type=teacher">
-                                                {{--<span class="badge badge-danger pull-right">9</span>--}}
-                                                {{--<i class="demo-pli-mail icon-lg icon-fw"></i> --}}
-                                                教师登录
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                {{--<span class="label label-success pull-right">New</span>--}}
-                                                {{--<i class="demo-pli-gear icon-lg icon-fw"></i> --}}
-                                                普通管理员登录
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                {{--<i class="demo-pli-information icon-lg icon-fw"></i> --}}
-                                                ××管理员登录
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                {{--<i class="demo-pli-computer-secure icon-lg icon-fw"></i> --}}
-                                                超级管理员登录
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </span>
                             <span>
                                 <a href="#" data-toggle="dropdown" class="dropdown-toggle text-right">
                                     <div class="username hidden-xs">注册</div>
@@ -506,9 +458,19 @@
                                     </ul>
                                 </div>
                             </span>
+                            <span>
+                                <a href="#" data-toggle="dropdown" class="dropdown-toggle text-right">
+                                    <div class="username hidden-xs">
+                                        <a href="/login">
+                                            登录
+                                        </a>
+                                    </div>
+                                </a>
+
+                            </span>
                         </li>
 
-                    @endguest
+                    @endif
                     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
                     <!--End user dropdown-->
 

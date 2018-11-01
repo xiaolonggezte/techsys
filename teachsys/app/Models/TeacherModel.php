@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class TeacherModel extends Model
 {
-    protected $table = 'teacher';
+    protected $table = 'teachers';
     protected $primaryKey = 'teacher_id';
 
     protected $fillable = [
@@ -17,5 +17,4 @@ class TeacherModel extends Model
         'teacher_email',
         'teacher_name'
     ];
-    public $timestamps = true;
 }

@@ -178,9 +178,9 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         /*
-         * may
+         * my
          */
-//        \App\Providers\StudentServiceProvider::class,
+        App\Providers\ServiceProviders::class,
     ],
 
     /*
@@ -233,7 +233,8 @@ return [
         /*
          * my
          */
-//        'StudentService' => \App\Services\StudentService::class,
+        'StudentService' => \App\Facades\StudentService::class,
+        'TeacherService' => \App\Facades\TeacherService::class,
     ],
 
 ];

@@ -1,12 +1,15 @@
 <?php
-
+/**
+ * Service的工厂类
+ */
 namespace App\Providers;
 
 
 use App\Services\StudentService;
+use App\Services\TeacherService;
 use Illuminate\Support\ServiceProvider;
 
-class StudentServiceProvider extends ServiceProvider
+class ServiceProviders extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
@@ -25,8 +28,12 @@ class StudentServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton('StudentService', function ($app) {
-            return new StudentService();
+        $this->app->singleton('StudentService', function () {
+            return new StudentService;
+        });
+
+        $this->app->singleton('TeacherService', function () {
+            return new TeacherService;
         });
     }
 }
