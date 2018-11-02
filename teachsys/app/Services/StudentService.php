@@ -34,7 +34,7 @@ class StudentService
      * 根据用户名查询用户
      */
     public function queryByUsername($username) {
-        return StudentModel::where('student_username',$username);
+        return StudentModel::where('student_username',$username) -> first();
     }
 
     /***
@@ -45,8 +45,8 @@ class StudentService
      */
     public function login($username, $password) {
         $student = StudentModel::where('student_username',$username) -> first();
-        dd($student);
-        if(null == $student || decrypt($student.$password) != $password) {
+//        dd($student -> getOriginal('student_password'));
+        if(null == $student || decrypt($student -> getOriginal('student_password')) != $password) {
             return false;
         }
         return true;

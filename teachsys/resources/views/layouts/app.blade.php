@@ -349,49 +349,6 @@
                                 </span>
                         </a>
 
-                        <!--Language selector menu-->
-                        <ul class="head-list dropdown-menu">
-                            <li>
-                                <!--English-->
-                                <a href="#" class="active">
-                                    <img class="lang-flag" src="img/flags/united-kingdom.png" alt="English">
-                                    <span class="lang-id">EN</span>
-                                    <span class="lang-name">English</span>
-                                </a>
-                            </li>
-                            <li>
-                                <!--France-->
-                                <a href="#">
-                                    <img class="lang-flag" src="img/flags/france.png" alt="France">
-                                    <span class="lang-id">FR</span>
-                                    <span class="lang-name">Fran&ccedil;ais</span>
-                                </a>
-                            </li>
-                            <li>
-                                <!--Germany-->
-                                <a href="#">
-                                    <img class="lang-flag" src="img/flags/germany.png" alt="Germany">
-                                    <span class="lang-id">DE</span>
-                                    <span class="lang-name">Deutsch</span>
-                                </a>
-                            </li>
-                            <li>
-                                <!--Italy-->
-                                <a href="#">
-                                    <img class="lang-flag" src="img/flags/italy.png" alt="Italy">
-                                    <span class="lang-id">IT</span>
-                                    <span class="lang-name">Italiano</span>
-                                </a>
-                            </li>
-                            <li>
-                                <!--Spain-->
-                                <a href="#">
-                                    <img class="lang-flag" src="img/flags/spain.png" alt="Spain">
-                                    <span class="lang-id">ES</span>
-                                    <span class="lang-name">Espa&ntilde;ol</span>
-                                </a>
-                            </li>
-                        </ul>
                     </li>
                     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
                     <!--End language selector-->
@@ -405,7 +362,13 @@
                                         <!--<img class="img-circle img-user media-object" src="img/profile-photos/1.png" alt="Profile Picture">-->
                                         <i class="demo-pli-male"></i>
                                     </span>
-                                <div class="username hidden-xs">Aaron Chavez</div>
+                                <div class="username hidden-xs">
+                                    @if ($_SESSION['role'] == 'student')
+                                        {{ $_SESSION['user'] -> getOriginal('student_name') }}
+                                    @else
+                                        {{ $_SESSION['user'] -> getOriginal('teacher_name') }}
+                                    @endif
+                                </div>
                             </a>
 
 
@@ -415,14 +378,14 @@
                                 <!-- User dropdown menu -->
                                 <ul class="head-list">
                                     <li>
-                                        <a href="/register?type=student">
-                                            <i class="demo-pli-male icon-lg icon-fw"></i> 学生注册
+                                        <a href="/users/info">
+                                            <i class="demo-pli-male icon-lg icon-fw"></i> 个人信息
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="/register?type=teacher">
-                                            <span class="badge badge-danger pull-right">9</span>
-                                            <i class="demo-pli-mail icon-lg icon-fw"></i> 教师注册
+                                        <a href="/users/unLogin">
+                                            {{--<span class="badge badge-danger pull-right">9</span>--}}
+                                            <i class="demo-pli-mail icon-lg icon-fw"></i> 注销登录
                                         </a>
                                     </li>
 

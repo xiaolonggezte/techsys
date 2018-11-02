@@ -44,6 +44,8 @@ Route::any('/registerTeacher','\App\Controllers\TeacherController@register');
 
 
 Route::any('/users/login','\App\Controllers\CommonController@userLogin');
+Route::any('/users/unLogin','\App\Controllers\CommonController@userUnLogin');
+
 
 
 Route::get('/base',function() {

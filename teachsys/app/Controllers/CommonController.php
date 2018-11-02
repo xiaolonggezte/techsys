@@ -58,5 +58,6 @@ class CommonController extends Controller
         if(isset($_SESSION['user'])) {
             unset($_SESSION['user']);
         }
+        return view('home');
     }
 }

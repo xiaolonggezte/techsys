@@ -33,7 +33,7 @@ class TeacherService
      * 根据用户名查询用户
      */
     public function queryByUsername($username) {
-        return TeacherModel::where('teacher_username',$username);
+        return TeacherModel::where('teacher_username',$username) -> first();
     }
 
     /***
