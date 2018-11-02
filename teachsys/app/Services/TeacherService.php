@@ -20,8 +20,8 @@ class TeacherService
         $data = [
             'teacher_username' => $paras['username'],
             'teacher_password' => encrypt($paras['password']),
-            'teacher_name' => $paras['email'],
-            'teacher_email' => $paras['name']
+            'teacher_name' => $paras['name'],
+            'teacher_email' => $paras['email']
         ];
 
         TeacherModel::create($data);

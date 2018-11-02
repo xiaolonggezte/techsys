@@ -4,7 +4,6 @@ namespace App\Controllers;
 
 
 use App\Facades\TeacherService;
-use App\Models\TeacherModel;
 use App\Requests\CommonRegisterRequest;
 use Illuminate\Http\Request;
 
