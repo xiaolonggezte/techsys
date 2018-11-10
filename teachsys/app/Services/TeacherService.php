@@ -11,6 +11,7 @@ namespace App\Services;
 
 
 
+use App\Facades\StringHelper;
 use App\Models\TeacherModel;
 
 class TeacherService
@@ -21,7 +22,8 @@ class TeacherService
             'teacher_username' => $paras['username'],
             'teacher_password' => encrypt($paras['password']),
             'teacher_name' => $paras['name'],
-            'teacher_email' => $paras['email']
+            'teacher_email' => $paras['email'],
+            'teacher_active_code' => StringHelper::getRandomString(45),
         ];
 
         TeacherModel::create($data);
@@ -43,11 +45,44 @@ class TeacherService
      * 登录校验
      */
     public function login($username, $password) {
-        $teacher = TeacherModel::where('teacher_username',$username);
-//        dd($teacher);
-//        if(null == $teacher || decrypt($teacher['teacher_password']) != $password) {
-//            return false;
-//        }
+        $teacher = TeacherModel::where('teacher_username',$username) -> first();
+//        dd($teacher );
+        if(null == $teacher || decrypt($teacher -> getOriginal('teacher_password')) != $password) {
+            return false;
+        }
         return true;
+    }
+
+    /**
+     * @param $username
+     * @return bool
+     * 判断是否存在
+     */
+    public function exits($username) {
+        $student = TeacherModel::where('teacher_username',$username) -> first();
+        return $student != null;
+    }
+
+    /**
+     * @param $username
+     * @param $activeCode
+     * @return bool
+     *  邮箱判断能否激活
+     */
+    public function activeCheck($username, $activeCode) {
+        $teacher = $this -> queryByUsername($username);
+        return $teacher != null && ($teacher -> getOriginal('teacher_active_code')) == $activeCode;
+    }
+
+    /**
+     * @param $activeAction
+     * @param $username
+     * @return bool
+     * 激活邮箱
+     */
+    public function activeAction($username) {
+        $teacher = $this -> queryByUsername($username);
+        $teacher -> teacher_email_checked = 1;
+        $teacher -> save();
     }
 }

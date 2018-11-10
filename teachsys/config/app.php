@@ -181,6 +181,7 @@ return [
          * my
          */
         App\Providers\ServiceProviders::class,
+        \App\Providers\HelperProviders::class,
     ],
 
     /*
@@ -231,10 +232,17 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
         /*
-         * my
+         * my service
          */
         'StudentService' => \App\Facades\StudentService::class,
         'TeacherService' => \App\Facades\TeacherService::class,
+        'CommonService' => \App\Facades\CommonService::class,
+        'MailService' => \App\Facades\MailService::class,
+
+        /**
+         *  my helps
+         */
+        'StringHelper' => \App\Facades\StringHelper::class,
     ],
 
 ];

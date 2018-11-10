@@ -24,11 +24,9 @@
                 </div>
                     @if (count($errors) > 0 )
                         <div clss="alert alert-danger">
-                            <ul>
-                                @foreach($errors -> all() as $error)
-                                    <li style="color:#F00;">{{ $error }}</li>
-                                @endforeach
-                            </ul>
+                            @foreach($errors -> all() as $error)
+                                <p style="color:#F00;">{{ $error }}</p>
+                            @endforeach
 
                         </div>
                     @endif
@@ -37,19 +35,23 @@
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Full name" name="name">
+                                <input type="text" class="form-control" placeholder="Full name" name="name" value="{{ old('name') }}">
 
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="E-mail" name="email">
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Username" name="username">
+                                <input type="text" class="form-control" placeholder="E-mail" name="email" value="{{ old('email') }}">
                             </div>
+                        </div>
+                        <div class="col-sm-6">
                             <div class="form-group">
-                                <input type="password" class="form-control" placeholder="Password" name="password">
+                                <input type="text" class="form-control" placeholder="Username" name="username" value="{{ old('username') }}">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <input type="password" class="form-control" placeholder="Password" name="password" value="{{ old('password') }}">
                             </div>
                         </div>
                     </div>
@@ -80,19 +82,19 @@
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Full name" name="name">
+                                    <input type="text" class="form-control" placeholder="Full name" name="name" value="{{ old('name') }}">
 
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="E-mail" name="email">
+                                    <input type="text" class="form-control" placeholder="E-mail" name="email" value="{{ old('email') }}">
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Username" name="username">
+                                    <input type="text" class="form-control" placeholder="Username" name="username" value="{{ old('username') }}">
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" class="form-control" placeholder="Password" name="password">
+                                    <input type="password" class="form-control" placeholder="Password" name="password" value="{{ old('password') }}">
                                 </div>
                             </div>
                         </div>

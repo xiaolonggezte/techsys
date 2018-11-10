@@ -24,7 +24,7 @@ class CommonRegisterRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'username' => 'required | unique:students,student_username| unique:teachers,teacher_username',
+            'username' => 'required | unique:student,student_username| unique:teacher,teacher_username',
             'password' => 'required | between:6,20',
             'email' => 'required | email',
             'protocol' => 'required'

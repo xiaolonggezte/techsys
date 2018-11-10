@@ -12,6 +12,7 @@ namespace App\Services;
 
 
 
+use App\Facades\StringHelper;
 use App\Models\StudentModel;
 
 class StudentService
@@ -23,7 +24,8 @@ class StudentService
             'student_username' => $paras['username'],
             'student_password' => encrypt($paras['password']),
             'student_email' => $paras['email'],
-            'student_name' => $paras['name']
+            'student_name' => $paras['name'],
+            'student_active_code' => StringHelper::getRandomString(45),
         ];
         StudentModel::create($data);
     }
@@ -50,5 +52,38 @@ class StudentService
             return false;
         }
         return true;
+    }
+
+    /**
+     * @param $username
+     * @return bool
+     * 判断是否存在
+     */
+    public function exits($username) {
+        $student = StudentModel::where('student_username',$username) -> first();
+        return $student != null;
+    }
+
+    /**
+     * @param $username
+     * @param $activeCode
+     * @return bool
+     *  邮箱判断能否激活
+     */
+    public function activeCheck($username, $activeCode) {
+        $student = $this -> queryByUsername($username);
+        return $student != null && $student -> getOriginal('student_active_code') == $activeCode;
+    }
+
+    /**
+     * @param $activeAction
+     * @param $username
+     * @return bool
+     * 激活邮箱
+     */
+    public function activeAction($username) {
+        $student = $this -> queryByUsername($username);
+        $student -> student_email_checked = 1;
+        $student -> save();
     }
 }

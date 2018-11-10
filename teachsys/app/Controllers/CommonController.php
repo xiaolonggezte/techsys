@@ -9,6 +9,7 @@ namespace App\Controllers;
 
 use App\Facades\StudentService;
 use App\Facades\TeacherService;
+use App\Requests\LoginRequest;
 use Illuminate\Http\Request;
 
 class CommonController extends Controller
@@ -16,7 +17,7 @@ class CommonController extends Controller
     /**
      * @param Request $request
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     *  将参数传递到前端页面中
+     *  将参数传递到前端页面中userLogin
      */
     public function register(Request $request) {
         $type = $request -> get('type');
@@ -24,20 +25,19 @@ class CommonController extends Controller
     }
 
     /**
-     * @param Request $request
+     *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      * 处理get中的参数
      */
-    public function login(Request $request) {
-        $type = $request -> get('type');
-        return view('user-login',compact('type',$type));
+    public function login() {
+        return view('user-login',compact('login_error','正常'));
     }
 
     /**
      * @param Request $request
      * student,teacher登录的公共方法
      */
-    public function userLogin(Request $request) {
+    public function userLogin(Request $request, LoginRequest $loginRequest) {
         $username = $request -> input('username');
         $password = $request -> input('password');
         if(StudentService::login($username, $password)) {
@@ -50,6 +50,8 @@ class CommonController extends Controller
             $_SESSION['user'] = TeacherService::queryByUsername($username);
         } else {
             $_SESSION['user'] = null;
+
+            return view('user-login', compact('login_error','密码错误'));
         }
         return view('home');
     }

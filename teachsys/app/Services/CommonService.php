@@ -11,5 +11,7 @@ namespace App\Services;
 
 class CommonService
 {
+    public function accountExist($username) {
 
+    }
 }

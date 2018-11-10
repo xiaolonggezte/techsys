@@ -5,6 +5,8 @@
 namespace App\Providers;
 
 
+use App\Services\CommonService;
+use App\Services\MailService;
 use App\Services\StudentService;
 use App\Services\TeacherService;
 use Illuminate\Support\ServiceProvider;
@@ -34,6 +36,14 @@ class ServiceProviders extends ServiceProvider
 
         $this->app->singleton('TeacherService', function () {
             return new TeacherService;
+        });
+
+        $this->app->singleton('CommonService', function () {
+            return new CommonService;
+        });
+
+        $this->app->singleton('MailService', function() {
+            return new MailService;
         });
     }
 }

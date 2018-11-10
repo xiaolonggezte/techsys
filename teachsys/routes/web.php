@@ -56,3 +56,11 @@ Route::get('/home',function() {
     return view('home');
 });
 
+
+/**
+ * 邮件激活实现
+ */
+
+Route::get('/active','\App\Controllers\MailController@activeMail');
+
+
