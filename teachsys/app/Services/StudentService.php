@@ -86,4 +86,14 @@ class StudentService
         $student -> student_email_checked = 1;
         $student -> save();
     }
+
+    /**
+     * @param $username
+     * 进行个人身份的验证
+     */
+    public function activeAuth($username) {
+        $student = $this -> queryByUsername($username);
+        $student -> student_checked = 1;
+        $student -> save();
+    }
 }

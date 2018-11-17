@@ -377,6 +377,13 @@
 
                                 <!-- User dropdown menu -->
                                 <ul class="head-list">
+                                    @if ($_SESSION['role'] == 'teacher' && $_SESSION['user'] -> getOriginal('teacher_admin') > 0)
+                                    <li>
+                                        <a href="/users/admin">
+                                            <i class="demo-pli-male icon-lg icon-fw"></i> 后台管理
+                                        </a>
+                                    </li>
+                                    @endif
                                     <li>
                                         <a href="/users/info">
                                             <i class="demo-pli-male icon-lg icon-fw"></i> 个人信息

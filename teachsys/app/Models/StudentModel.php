@@ -14,6 +14,7 @@ class StudentModel extends Model {
         'student_email',
         'student_password',
         'student_active_code',
+        'student_checked',
     ];
 
 }

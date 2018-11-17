@@ -238,6 +238,12 @@ return [
         'TeacherService' => \App\Facades\TeacherService::class,
         'CommonService' => \App\Facades\CommonService::class,
         'MailService' => \App\Facades\MailService::class,
+        'ClassService' => \App\Facades\ClassService::class,
+        'ExamPaperService' => \App\Facades\ExamPaperService::class,
+        'ExamService' => \App\Facades\ExamPaperService::class,
+        'PracticeService' => \App\Facades\PracticeService::class,
+        'ProContentCategoryService' => \App\Facades\ProContentCategoryService::class,
+        'ProsService' => \App\Facades\ProsService::class,
 
         /**
          *  my helps

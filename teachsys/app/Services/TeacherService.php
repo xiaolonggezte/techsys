@@ -85,4 +85,25 @@ class TeacherService
         $teacher -> teacher_email_checked = 1;
         $teacher -> save();
     }
+
+    /**
+     * @param $username
+     * 进行个人身份的验证
+     */
+    public function activeAuth($username) {
+        $teacher = $this -> queryByUsername($username);
+        $teacher -> teacher_checked = 1;
+        $teacher -> save();
+    }
+
+    /**
+     * @param $username
+     * @param $type
+     * 增加管理员权限，1代表题库管理员，2代表院校管理员，4代表超级管理员
+     */
+    public function activeAdmin($username, $type) {
+        $teacher = $this -> queryByUsername($username);
+        $teacher -> teacher_admin = $type;
+        $teacher -> save();
+    }
 }

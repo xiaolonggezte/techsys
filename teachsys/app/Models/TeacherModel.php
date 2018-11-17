@@ -17,5 +17,6 @@ class TeacherModel extends Model
         'teacher_email',
         'teacher_name',
         'teacher_active_code',
+        'teacher_checked',
     ];
 }

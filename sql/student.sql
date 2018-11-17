@@ -6,7 +6,7 @@ CREATE TABLE `student` (
   `student_username` varchar(50) UNIQUE NOT NULL COMMENT '学生登录用户名',
   `student_email` varchar(50) DEFAULT NULL COMMENT '邮箱',
   `student_password` varchar(255) DEFAULT NULL COMMENT '用户密码',
-  `student_class_id` bigint NOT NULL COMMENT '外键：班级id',
+  `student_class_id` bigint DEFAULT NULL COMMENT '外键：班级id',
   `student_number` varchar(50) DEFAULT NULL COMMENT '学号',
   `student_name` varchar(50) NOT NULL COMMENT '姓名',
   `student_sex` enum('男','女') NOT NULL COMMENT '性别',
