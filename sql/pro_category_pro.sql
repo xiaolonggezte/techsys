@@ -12,3 +12,6 @@ CREATE TABLE `pro_category_pro` (
   FOREIGN KEY (pro_category_pro_pros_id) REFERENCES pros(pros_id),
   FOREIGN KEY (pro_category_pro_category_id) REFERENCES pro_content_category(pro_content_category_id)
 ) ENGINE=InnoDB AUTO_INCREMENT=10000 DEFAULT CHARSET=utf8 COMMENT='题目与题目类别对应表';
+
+-- 删除对应表，改成多对一
+drop table pro_category_pro;

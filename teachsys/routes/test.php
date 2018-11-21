@@ -66,3 +66,20 @@ Route::get('/tests/examPaperPros', function() {
 
     dd(json_encode($examPaperPros));
 });
+
+
+Route::get('/ueditor', function() {
+    return view('demo');
+});
+
+//测试redis
+Route::get('/redisTest', function() {
+    \Illuminate\Support\Facades\Redis::set('name', 'xiaolong');
+    return \Illuminate\Support\Facades\Redis::get('redisHello');
+});
+
+Route::get('/tests/strings', function() {
+    $arrys = ['one', 'two', 'there'];
+//    return gettype(json_encode($arrys));
+    return gettype(json_decode(json_encode($arrys)));
+});
