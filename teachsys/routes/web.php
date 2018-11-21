@@ -11,8 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home');
+Route::get('/welcome', function () {
+    return view('welcome');
 });
 
 //访问数据库测试

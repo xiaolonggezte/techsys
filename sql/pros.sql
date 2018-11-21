@@ -20,12 +20,7 @@ CREATE TABLE `pros` (
   FOREIGN KEY (pros_category_id) REFERENCES pro_content_category(pro_content_category_id)
 ) ENGINE=InnoDB AUTO_INCREMENT=10000 DEFAULT CHARSET=utf8 COMMENT='题目对象';
 
--- 删除外键pro_category_id
+-- 删除外键pro_category_id，
 alter table pros drop foreign key pros_ibfk_2;
 alter table pros drop column pros_category_id;
-
-
--- 增加一个外键
-alter table pros add pro_category_id bigint NULL COMMENT '外键：对应章节表';
-alter table pros add FOREIGN KEY(pro_category_id) REFERENCES pro_content_category(pro_content_category_id);
 
