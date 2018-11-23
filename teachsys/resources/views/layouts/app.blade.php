@@ -453,11 +453,74 @@
             </div>
         </div>
     </header>
+    <!--===================================================-->
+    <!--END NAVBAR-->
+    <!--CONTENT CONTAINER-->
+    <!--===================================================-->
+    <div id="content-container" align="center">
+        {{--<div id="page-head">--}}
+
+            {{--<!--Page Title-->--}}
+            {{--<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->--}}
+            {{--<div id="page-title">--}}
+                {{--<h1 class="page-header text-overflow">Blank page</h1>--}}
+
+                {{--<!--Searchbox-->--}}
+                {{--<div class="searchbox">--}}
+                    {{--<div class="input-group custom-search-form">--}}
+                        {{--<input type="text" class="form-control" placeholder="Search..">--}}
+                        {{--<span class="input-group-btn">--}}
+                                    {{--<button class="text-muted" type="button"><i class="demo-pli-magnifi-glass"></i></button>--}}
+                                {{--</span>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+            {{--</div>--}}
+            {{--<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->--}}
+            {{--<!--End page title-->--}}
 
 
-    @yield('content')
+            {{--<!--Breadcrumb-->--}}
+            {{--<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->--}}
+            {{--<ol class="breadcrumb">--}}
+                {{--<li><a href="#">Home</a></li>--}}
+                {{--<li><a href="#">Pages</a></li>--}}
+                {{--<li class="active">Blank page</li>--}}
+            {{--</ol>--}}
+            {{--<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->--}}
+            {{--<!--End breadcrumb-->--}}
+
+        {{--</div>--}}
+        @yield('content')
+
+        <!--Page content-->
+        <!--===================================================-->
+        {{--<div id="page-content">--}}
+
+            {{--<hr class="new-section-sm bord-no">--}}
+            {{--<div class="row">--}}
+                {{--<div class="col-lg-6 col-lg-offset-3">--}}
+                    {{--<div class="panel panel-trans text-center">--}}
+                        {{--<div class="panel-heading">--}}
+                            {{--@yield('content')--}}
+                        {{--</div>--}}
+                        {{--<div class="panel-body">--}}
+                            {{--@yield('content')--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+            {{--</div>--}}
 
 
+
+        {{--</div>--}}
+        <!--===================================================-->
+        <!--End page content-->
+
+
+    </div>
+
+    <!-- FOOTER -->
+    <!--===================================================-->
     <footer id="footer">
 
         <!-- Visible when footer positions are fixed -->

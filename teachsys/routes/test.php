@@ -9,6 +9,13 @@
 
 use App\dto\ProsSelection;
 
+/* fwj's change start */
+Route::get('/problemlist',function() {
+    return view('problem-list');
+});
+
+/* fwj end*/
+
 Route::get('/StringHelperTest', function() {
     $str = \App\Facades\StringHelper::getRandomString(45);
     return $str;
@@ -65,21 +72,4 @@ Route::get('/tests/examPaperPros', function() {
     $examPaperPros = new \App\dto\ExamPaperPros(3, $pors);
 
     dd(json_encode($examPaperPros));
-});
-
-
-Route::get('/ueditor', function() {
-    return view('demo');
-});
-
-//测试redis
-Route::get('/redisTest', function() {
-    \Illuminate\Support\Facades\Redis::set('name', 'xiaolong');
-    return \Illuminate\Support\Facades\Redis::get('redisHello');
-});
-
-Route::get('/tests/strings', function() {
-    $arrys = ['one', 'two', 'there'];
-//    return gettype(json_encode($arrys));
-    return gettype(json_decode(json_encode($arrys)));
 });
